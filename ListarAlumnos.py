@@ -2,7 +2,6 @@ import boto3
 import pymysql
 import os
 
-secret_name = "rds_mysql_alumnos_user"
 
 def lambda_handler(event, context):
     # Parámetros de conexión (puedes usar Parameter Store o Secrets Manager para mayor seguridad)
@@ -10,7 +9,7 @@ def lambda_handler(event, context):
     user = os.environ['DB_USER']
     SSM_password = os.environ['DB_PASSWORD']
     database = os.environ['DB_NAME']
-    secret_name = secret_name + database
+    secret_name = "rds_mysql_alumnos_user" + database
 
     # Recuperar los secretos
     session = boto3.session.Session()
