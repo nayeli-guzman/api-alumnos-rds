@@ -9,7 +9,7 @@ def lambda_handler(event, context):
     user = os.environ['DB_USER']
     SSM_password = os.environ['DB_PASSWORD']
     database = os.environ['DB_NAME']
-    secret_name = "rds_mysql_alumnos_user" + database
+    secret_name = "rds_mysql_alumnos_user_" + database
     region_name = 'us-east-1'
 
     # Recuperar los secretos
