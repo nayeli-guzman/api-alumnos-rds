@@ -22,6 +22,7 @@ def lambda_handler(event, context):
 
     user = secret['username']
     password = secret['password']
+    host = "alumnos.cdqnwdkgx7px.us-east-1.rds.amazonaws.com"
 
     try:
         connection = pymysql.connect(
@@ -48,5 +49,5 @@ def lambda_handler(event, context):
         }
 
     finally:
-        if connection:
+        if connection is not None:
             connection.close()
